@@ -1,6 +1,6 @@
 {
-    "name": "app_template_project",
-    "short_name": "app_template_project",
+    "name": "flutter_app_template",
+    "short_name": "flutter_app_template",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+
+import '../../../../core/constants/app_color.dart';
+import '../../../../core/constants/app_size.dart';
+import '../../../content_page/presentation/pages/content_page_view.dart';
+import '../../../home_page/presentation/pages/home_page_view.dart';
+import '../../../more_page/presentation/pages/more_page_view.dart';
+
+class MainNavigationController extends GetxController{
+
+  late PersistentTabController persistentTabController;
+  List<Widget> buildScreens() => [
+    const HomePage(),
+    const ContentPage(),
+    const MorePage(),
+  ];
+  NavBarStyle navBarStyle = NavBarStyle.style3;
+
+  final List<ScrollController> scrollControllers =
+  List.generate(4, (_) => ScrollController());
+  BuildContext? testContext;
+
+  List<PersistentBottomNavBarItem> navBarsItems() => [
+    PersistentBottomNavBarItem(
+      icon: FaIcon(FontAwesomeIcons.house, size: 18.r), //Image.asset(AppImageAssets.homeIcon),
+      title: "Home",
+      activeColorPrimary: AppColor.primary,
+      inactiveColorPrimary: Colors.grey,
+    ),
+    PersistentBottomNavBarItem(
+      icon: FaIcon(FontAwesomeIcons.mortarPestle, size: 18.r),//Image.asset(AppImageAssets.calenderIcon,),
+      iconSize: AppSize.navBarIconSize,
+      title: "Content",
+      opacity: 0.7,
+      activeColorPrimary: AppColor.primary,
+      activeColorSecondary: navBarStyle == NavBarStyle.style7 ||
+          navBarStyle == NavBarStyle.style10
+          ? Colors.white
+          : null,
+      inactiveColorPrimary: AppColor.grey,
+      scrollController: scrollControllers.first,
+    ),
+    PersistentBottomNavBarItem(
+      icon: FaIcon(FontAwesomeIcons.bars, size: 18.r),
+      title: "More",
+      activeColorPrimary: AppColor.primary,
+      inactiveColorPrimary: Colors.grey,
+      activeColorSecondary: navBarStyle == NavBarStyle.style7 ||
+          navBarStyle == NavBarStyle.style10
+          ? Colors.white
+          : null,
+      scrollController: scrollControllers.last,
+    ),
+  ];
+
+  @override
+  void onInit() {
+    persistentTabController = PersistentTabController(initialIndex: 0);
+    super.onInit();
+  }
+}
