@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_template/src/core/controller/app_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -21,11 +22,13 @@ Future<void> main() async {
 
   await AppDateFormat.initializeLocale(const Locale('en', 'AU'));
 
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({super.key});
+
+  final AppController _appController = Get.put(AppController());
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +38,8 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             title: 'Flutter-App-Template',
-            theme: AppTheme.lightTheme(context),
-            darkTheme: AppTheme.darkTheme(context),
+            theme: _appController.isDarkMode.value ? AppTheme.dark : AppTheme.light,
+            darkTheme: AppTheme.dark,
             getPages: Routes.routes,
             initialRoute: RoutesPath.splashScreen,
             initialBinding: SplashScreenBinding(),

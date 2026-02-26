@@ -53,6 +53,8 @@ dependencies:
   fluttertoast: ^8.2.14
   super_tooltip: ^2.1.0
   persistent_bottom_nav_bar: ^6.2.1
+  flex_color_scheme: ^8.2.0
+  package_info_plus: ^9.0.0
 
 dev_dependencies:
   flutter_test:

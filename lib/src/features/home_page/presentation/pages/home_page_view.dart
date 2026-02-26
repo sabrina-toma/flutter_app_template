@@ -4,6 +4,7 @@ import 'package:flutter_app_template/src/app_widgets/text/app_text_widgets.dart'
 import 'package:get/get.dart';
 
 import '../../../../core/constants/app_color.dart';
+import '../../application/bindings/home_page_binding.dart';
 import '../../application/controllers/home_page_controller.dart';
 
 class HomePage extends GetView<HomePageController> {
@@ -18,7 +19,7 @@ class HomePage extends GetView<HomePageController> {
           decoration: BoxDecoration(color: AppColor.appBackgroundColor),
           child: Center(
             child: AppText(
-              text: 'Home Page',
+              text: controller.pageName,
               textStyle: TextStyleType.titleLarge,
               color: AppColor.primary,
             ),

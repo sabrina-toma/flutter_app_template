@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
-import '../../../core/constants/app_color.dart';
-import '../application/controllers/main_navigation_controller.dart';
+import '../../../../core/constants/app_color.dart';
+import '../../application/controllers/main_navigation_controller.dart';
 
 
 class MainNavigationPage extends GetView<MainNavigationController> {

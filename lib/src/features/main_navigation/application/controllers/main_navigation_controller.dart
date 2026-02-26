@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/features/content_page/application/bindings/content_page_binding.dart';
+import 'package:flutter_app_template/src/features/home_page/presentation/pages/home_page_view.dart';
+import 'package:flutter_app_template/src/features/more_page/application/bindings/more_page_binding.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -7,16 +10,26 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../../../../core/constants/app_color.dart';
 import '../../../../core/constants/app_size.dart';
 import '../../../content_page/presentation/pages/content_page_view.dart';
-import '../../../home_page/presentation/pages/home_page_view.dart';
+import '../../../home_page/application/bindings/home_page_binding.dart';
 import '../../../more_page/presentation/pages/more_page_view.dart';
+import '../../presentation/widgets/binding_tab.dart';
 
 class MainNavigationController extends GetxController{
 
   late PersistentTabController persistentTabController;
   List<Widget> buildScreens() => [
-    const HomePage(),
-    const ContentPage(),
-    const MorePage(),
+    BindingTab(
+      binding: HomePageBinding(),
+      child: const HomePage(),
+    ),
+    BindingTab(
+      binding: ContentPageBinding(),
+      child: const ContentPage(),
+    ),
+    BindingTab(
+      binding: MorePageBinding(),
+      child: const MorePage(),
+    ),
   ];
   NavBarStyle navBarStyle = NavBarStyle.style3;
 
