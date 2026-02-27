@@ -18,7 +18,7 @@ class ContentPage extends GetView<ContentPageController> {
           decoration: BoxDecoration(color: AppColor.appBackgroundColor),
           child: Center(
             child: AppText(
-              text: 'Content Page',
+              text: controller.pageName,
               textStyle: TextStyleType.titleLarge,
               color: AppColor.secondary,
             ),

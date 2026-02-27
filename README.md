@@ -1,16 +1,5 @@
 # flutter_app_template
 
-A new Flutter project.
+A Flutter App Template project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The app theme configuration: https://rydmike.com/flexcolorscheme/themesplayground-latest/?config=H4sIAEaXoGkA_2WQsWrDMBCG9zyF8ByM66au8WjaoUOgNN3NIV1jEdkS0skkhLx7JcVxS6Lx_z7uft15xcLLjILT3mo_ik4AQdaw7LvHAR37XAiLhOHRaEsoWPmaF2VeFmXFiqJ5qZqiytYP0ya0TuoxDqzzTV7cFK4HA5y2WmBgZD3OQI7G0xtybYG0bbUVaL9ASO-C91TO1oCjX9J6Dh2PlT9GgceQPi8xguX94ww3Aj-0cL-jvsPvCieg6x82M6O4aO5-TlGKBVjq6GRinIWGQ5fEbojm-s-bQPnkKLnvKUvgchuttSJp3BaI922ocD1ksH9AOVwsI3n66Y7C0p1MVaqZhqOT5KD-XXd1-QV1wabY6gEAAA==
