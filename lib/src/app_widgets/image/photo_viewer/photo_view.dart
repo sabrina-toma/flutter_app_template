@@ -1,3 +1,4 @@
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
-import '../../../core/constants/app_color.dart';
 
 PageController? pageController;
 
@@ -58,7 +58,7 @@ class _PhotoViewSliderState extends State<PhotoViewSlider> {
           ),
         ),
         backgroundDecoration: BoxDecoration(
-          color: AppColor.primary,
+          color: context.colors.primary,
         ),
         pageController: pageController,
         onPageChanged:(index) {
@@ -77,10 +77,10 @@ class _PhotoViewSliderState extends State<PhotoViewSlider> {
               height: 30.h,
               width: 30.w,
               decoration: BoxDecoration(
-                color: AppColor.white,
+                color: context.colors.onPrimary,
                 borderRadius: BorderRadius.all(Radius.circular(40.r)),
               ),
-              child: Icon(Icons.arrow_back, size: 20.r, color: AppColor.primary),
+              child: Icon(Icons.arrow_back, size: 20.r, color: context.colors.primary),
             ),
           ),
         ),
@@ -93,14 +93,14 @@ class _PhotoViewSliderState extends State<PhotoViewSlider> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               decoration: BoxDecoration(
-                  color: AppColor.white,
+                  color: context.colors.onPrimary,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(20.r), bottomLeft: Radius.circular(20.r))),
               child: Obx(()=>Text(
                 '${currentIndex.value + 1}/${widget.photoUrlList.length}',
                 style: GoogleFonts.inter(
                   textStyle: Get.textTheme.bodyMedium!.copyWith(
                     overflow: TextOverflow.visible,
-                    color: AppColor.primary,
+                    color: context.colors.primary,
                     fontWeight: FontWeight.w500,
                   ),
                 ),

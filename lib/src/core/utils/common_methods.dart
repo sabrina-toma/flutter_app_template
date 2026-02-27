@@ -2,10 +2,10 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import '../constants/app_color.dart';
 
 DateTime utcFormatDateTime(DateTime date){
   DateTime dateUtc = DateTime.utc(
@@ -87,7 +87,7 @@ showAppBottomSheet(Widget widget) {
     useSafeArea: true,
     isScrollControlled: true,
     isDismissible: false,
-    barrierColor: AppColor.grey.withOpacity(0.65),
+    barrierColor: Get.context!.colors.outline,
     builder: (context) {
       return SingleChildScrollView(
         child: widget,

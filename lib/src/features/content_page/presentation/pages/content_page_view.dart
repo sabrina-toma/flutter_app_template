@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app_template/src/app_widgets/text/app_text_widgets.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/constants/app_color.dart';
 import '../../application/controllers/content_page_controller.dart';
 
 class ContentPage extends GetView<ContentPageController> {
@@ -12,15 +11,15 @@ class ContentPage extends GetView<ContentPageController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      bottom: false,
       child: Scaffold(
-        body: Container(
+        body: SizedBox(
           height: Get.height,
-          decoration: BoxDecoration(color: AppColor.appBackgroundColor),
           child: Center(
             child: AppText(
               text: controller.pageName,
               textStyle: TextStyleType.titleLarge,
-              color: AppColor.secondary,
+              color: context.colors.secondary,
             ),
           ),
         ),

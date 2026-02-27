@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 
-import '../../core/constants/app_color.dart';
 import '../../core/utils/common_methods.dart';
 
 Stream<int> countdownStream(DateTime startTime, bool isCountDown) {
@@ -41,13 +41,13 @@ class CurrentDurationStatusWidget extends StatelessWidget {
         initialData: 0,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
+            return Center(
               child: SizedBox(
                 height: 28,
                 width: 28,
                 child: CircularProgressIndicator(
                   value: null,
-                  valueColor: AlwaysStoppedAnimation<Color>(AppColor.secondary),
+                  valueColor: AlwaysStoppedAnimation<Color>(context.colors.secondary),
                 ),
               ),
             );
@@ -62,7 +62,7 @@ class CurrentDurationStatusWidget extends StatelessWidget {
           //   textStyle: TextStyleType.titleLarge,
           //   fontWeight: FontWeight.w600,
           //   overflow: TextOverflow.visible,
-          //   color: AppColor.secondary,
+          //   color: context.colors.secondary,
           // );
         },
       ),

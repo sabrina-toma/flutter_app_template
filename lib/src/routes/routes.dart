@@ -1,11 +1,9 @@
 
-import 'package:flutter_app_template/src/features/more_page/presentation/pages/more_page_view.dart';
 import 'package:flutter_app_template/src/features/settings/applications/bindings/settings_binding.dart';
 import 'package:get/get.dart';
 
 import '../features/main_navigation/application/bindings/main_navigation_binding.dart';
 import '../features/main_navigation/presentation/pages/main_navigation_page.dart';
-import '../features/settings/applications/controllers/settings_controller.dart';
 import '../features/settings/presentation/pages/settings_page.dart';
 import '../features/splash_screen/application/bindings/splash_screen_binding.dart';
 import '../features/splash_screen/presentation/pages/splash_screen_page.dart';

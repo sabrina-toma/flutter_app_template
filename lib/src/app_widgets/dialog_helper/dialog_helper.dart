@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-import '../../core/constants/app_color.dart';
 import '../../core/constants/app_size.dart';
 import '../buttons/app_button.dart';
 import '../text/app_text_widgets.dart';
@@ -53,7 +53,7 @@ class DialogHelper {
                         height: 40.h,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          border: Border(top: BorderSide(color: AppColor.greyLight, width: 0.5.w)),
+                          border: Border(top: BorderSide(color: Get.context!.colors.outlineVariant, width: 0.5.w)),
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(AppSize.smallBorderRadius),
                             bottomLeft: Radius.circular(AppSize.smallBorderRadius),
@@ -72,8 +72,8 @@ class DialogHelper {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           border: Border(
-                            top: BorderSide(color: AppColor.greyLight, width: 0.5.w),
-                            left: BorderSide(color: AppColor.greyLight, width: 0.5.w),
+                            top: BorderSide(color: Get.context!.colors.outlineVariant, width: 0.5.w),
+                            left: BorderSide(color: Get.context!.colors.outlineVariant, width: 0.5.w),
                           ),
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(AppSize.smallBorderRadius),
@@ -103,14 +103,14 @@ class DialogHelper {
   static void showLoadingDialog({Widget? dynamicText}) {
     Get.dialog(
       barrierDismissible: false,
-      barrierColor: Colors.grey.withOpacity(0.7),
+      barrierColor: Get.context!.colors.surfaceContainerHighest,
       Dialog(
         elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0.r),
         ),
         child: Card(
-          color: AppColor.primary,
+          color: Get.context!.colors.primary,
           elevation: 5,
           margin: EdgeInsets.zero,
           child: Padding(
@@ -121,14 +121,14 @@ class DialogHelper {
                 SizedBox(height: 20.h),
                 Center(
                   child: LoadingAnimationWidget.staggeredDotsWave(
-                    color: AppColor.white,
+                    color: Get.context!.colors.onSurfaceVariant,
                     size: 30.r,
                   ),
                 ),
                 dynamicText ??
                     Text('Please wait...',
                         style: Get.textTheme.bodyMedium!.copyWith(
-                          color: AppColor.white,
+                          color: Get.context!.colors.onSurfaceVariant,
                         )),
                 SizedBox(height: 10.h),
               ],
@@ -142,11 +142,8 @@ class DialogHelper {
   static Widget progressLoader() {
     return Container(
       alignment: AlignmentDirectional.center,
-      decoration: const BoxDecoration(
-        color: Colors.white70,
-      ),
       child: Container(
-        decoration: BoxDecoration(color: AppColor.primary, borderRadius: BorderRadius.circular(10.0.r)),
+        decoration: BoxDecoration(color: Get.context!.colors.primary, borderRadius: BorderRadius.circular(10.0.r)),
         width: 300.0.w,
         height: 100.0.h,
         alignment: AlignmentDirectional.center,
@@ -161,15 +158,13 @@ class DialogHelper {
                 child: CircularProgressIndicator(
                   value: null,
                   strokeWidth: 2.0.w,
-                  color: Colors.white,
+                  color: Get.context!.colors.onPrimary,
                 ),
               ),
             ),
-            const Center(
-              child: Text(
-                "loading.. wait...",
-                style: TextStyle(color: Colors.white),
-              ),
+             Center(
+              child: AppText(text: "loading.. wait...", textStyle: TextStyleType.titleMedium,
+                color: Get.context!.colors.onPrimary,),
             ),
           ],
         ),
@@ -209,7 +204,7 @@ class DialogHelper {
                 height: 40.h,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  border: Border(top: BorderSide(color: AppColor.greyLight, width: 0.5.w)),
+                  border: Border(top: BorderSide(color: Get.context!.colors.outlineVariant, width: 0.5.w)),
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(AppSize.smallBorderRadius),
                     bottomLeft: Radius.circular(AppSize.smallBorderRadius),
@@ -248,7 +243,7 @@ Widget progressLoader() {
       color: Colors.white70,
     ),
     child: Container(
-      decoration: BoxDecoration(color: AppColor.primary, borderRadius: BorderRadius.circular(10.0.r)),
+      decoration: BoxDecoration(color: Get.context!.colors.primary, borderRadius: BorderRadius.circular(10.0.r)),
       width: 300.0.w,
       height: 100.0.h,
       alignment: AlignmentDirectional.center,
@@ -284,7 +279,7 @@ Future notLoggedInDialog() {
     context: Get.context!,
     builder: (context) => AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.largeBorderRadius)),
-      backgroundColor: Get.isDarkMode ? AppColor.appBackgroundColorDark : AppColor.appBackgroundColor,
+      backgroundColor: Get.context!.backgroundColor,
       title: AppText(
         text: 'Not Signed In',
         textStyle: TextStyleType.titleMedium,
@@ -308,7 +303,7 @@ Future notLoggedInDialog() {
             text: 'Sign In',
             textStyle: TextStyleType.bodyLarge,
             fontWeight: FontWeight.w500,
-            color: AppColor.white,
+            color: Get.context!.colors.onPrimary,
           ),
         ),
       ],

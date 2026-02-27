@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-import '../constants/app_color.dart';
 import '../constants/app_constrains.dart';
 
 class AppProgressDialog {
@@ -12,7 +12,7 @@ class AppProgressDialog {
     return Scaffold(
       body: Center(
         child: LoadingAnimationWidget.staggeredDotsWave(
-          color: AppColor.primary,
+          color: context.colors.primary,
           size: 30,
         ),
       ),
@@ -26,14 +26,14 @@ class AppProgressDialog {
   static void showLoading({Widget? dynamicText}) {
     Get.dialog(
       barrierDismissible: false,
-      barrierColor: Colors.grey.withOpacity(0.7),
+      barrierColor: Get.context!.colors.outline,
       Dialog(
         elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: Card(
-          color: AppColor.primary,
+          color: Get.context!.colors.primary,
           elevation: 5,
           margin: EdgeInsets.zero,
           child: Padding(
@@ -44,14 +44,14 @@ class AppProgressDialog {
                 AppConstrains.spaceBetweenSections,
                 Center(
                   child: LoadingAnimationWidget.threeArchedCircle(
-                    color: AppColor.white,
+                    color: Get.context!.colors.onPrimary,
                     size: 30.r,
                   ),
                 ),
                 dynamicText ??
                     Text('Please wait...',
                         style: Get.textTheme.bodyMedium!.copyWith(
-                          color: AppColor.white,
+                          color: Get.context!.colors.onPrimary,
                         )),
                 AppConstrains.spaceBetweenItems,
               ],
@@ -63,7 +63,7 @@ class AppProgressDialog {
   }
 }
 
-Widget ProgressLoader() {
+Widget progressLoader() {
   return Container(
     alignment: AlignmentDirectional.center,
     decoration: const BoxDecoration(
@@ -71,7 +71,7 @@ Widget ProgressLoader() {
     ),
     child: Container(
       decoration: BoxDecoration(
-          color: AppColor.primary,
+          color: Get.context!.colors.primary,
           borderRadius: BorderRadius.circular(10.0)),
       width: 300.0,
       height: 100.0,

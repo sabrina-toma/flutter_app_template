@@ -21,7 +21,7 @@ class AppIcons {
   static const IconData upload = FontAwesomeIcons.cloudArrowUp;
   static const IconData clock = FontAwesomeIcons.clock;
   static const IconData share = FontAwesomeIcons.shareFromSquare;
-  static const IconData signOut = FontAwesomeIcons.signOut;
+  static const IconData signOut = Icons.logout;//FontAwesomeIcons.signOut;
   static const IconData dollar = FontAwesomeIcons.dollarSign;
   static const IconData carSide = FontAwesomeIcons.carSide;
   static const IconData user = FontAwesomeIcons.user;

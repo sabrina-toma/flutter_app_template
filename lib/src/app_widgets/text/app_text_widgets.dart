@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../core/constants/app_color.dart';
 
 class TextStyleType {
   static TextStyle displayLarge = Get.textTheme.displayLarge!;
@@ -19,6 +18,11 @@ class TextStyleType {
   static TextStyle bodySmall = Get.textTheme.bodySmall!;
   static TextStyle labelSmall = Get.textTheme.labelSmall!;
   static TextStyle labelMedium = Get.textTheme.labelMedium!;
+  static TextStyle hintTextStyle = Get.textTheme.bodyMedium!.copyWith(
+    color: Get.context!.theme.hintColor,
+    fontWeight: FontWeight.w200,
+    decoration: TextDecoration.none,
+  );
 }
 
 class TitleText extends StatelessWidget {
@@ -26,10 +30,10 @@ class TitleText extends StatelessWidget {
   final TextStyle? textStyle;
 
   const TitleText({
-    Key? key,
+    super.key,
     required this.text,
     this.textStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +64,7 @@ class AppText extends StatelessWidget {
   final double? decorationThickness, fontSize;
 
   const AppText({
-    Key? key,
+    super.key,
     required this.text,
     required this.textStyle,
     this.fontWeight,
@@ -71,7 +75,7 @@ class AppText extends StatelessWidget {
     this.decoration,
     this.decorationThickness,
     this.fontSize,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -84,9 +88,9 @@ class AppText extends StatelessWidget {
         fontWeight: fontWeight ?? FontWeight.normal,
         fontStyle: fontStyle ?? FontStyle.normal,
         fontSize: fontSize,
-        color: color ?? (Get.isDarkMode ? AppColor.textColorDark : AppColor.textColor),
+        color: color ?? context.colors.onPrimaryContainer,//(Get.isDarkMode ? AppColor.textColorDark : AppColor.textColor),
         decoration: decoration ?? TextDecoration.none,
-        decorationColor: color ?? (Get.isDarkMode ? AppColor.textColorDark : AppColor.textColor),
+        decorationColor: color ?? context.colors.onPrimaryContainer, // (Get.isDarkMode ? AppColor.textColorDark : AppColor.textColor),
         decorationThickness: decorationThickness ?? 1,
       ),
 

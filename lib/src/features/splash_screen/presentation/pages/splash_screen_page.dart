@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_template/src/core/constants/app_icons.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/assetes/image_assets_manager.dart';
-import '../../../../core/constants/app_color.dart';
 import '../../application/controllers/splash_screen_controller.dart';
 
 class SplashScreenPage extends GetView<SplashScreenController> {
@@ -13,7 +12,7 @@ class SplashScreenPage extends GetView<SplashScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.secondary,
+      backgroundColor: context.colors.secondary,
       body: Center(
         child: controller.animation != null
             ? FadeTransition(

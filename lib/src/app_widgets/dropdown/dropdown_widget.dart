@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/app_widgets/text/app_text_widgets.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
 
-import '../../core/constants/app_color.dart';
 import '../../core/constants/app_size.dart';
 
 class AppDropDownWidget extends StatelessWidget {
@@ -59,11 +60,7 @@ class AppDropDownWidget extends StatelessWidget {
               // border: const OutlineInputBorder(),
               labelText: '${labelText ?? 'Type'} ${isMandatory != null &&  isMandatory == false? '' : '*'}',
               hintText: hintText,
-              hintStyle: Get.textTheme.bodyMedium!.copyWith(
-                color: AppColor.hintTextColor,
-                fontWeight: FontWeight.w200,
-                decoration: TextDecoration.none,
-              ),
+              hintStyle: TextStyleType.hintTextStyle,
               contentPadding: EdgeInsets.symmetric(vertical: 10.0.h, horizontal: 16.0.w),
               // border: OutlineInputBorder(
               //   borderSide: BorderSide(
@@ -73,21 +70,21 @@ class AppDropDownWidget extends StatelessWidget {
               // ),
               disabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: AppColor.disabledBorder,
+                  color: context.disabledColor,
                   width: 2.w,
                 ),
                 borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: borderColor ?? AppColor.textFieldBorderColor,
+                  color: borderColor ?? context.colors.outline,
                   width: 2.w,
                 ),
                 borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: AppColor.secondary,
+                  color: context.colors.secondary,
                   width: 2.w,
                 ),
                 borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
@@ -96,12 +93,8 @@ class AppDropDownWidget extends StatelessWidget {
           );
         },
         itemBuilder: (context, suggestion) {
-          return Container(
-            color: Get.isDarkMode ? AppColor.black : AppColor.white,
-            child: ListTile(
-              title: Text(suggestion),
-              textColor: Get.isDarkMode ? AppColor.white : AppColor.black54,
-            ),
+          return ListTile(
+            title: AppText(text: suggestion, textStyle: TextStyleType.bodyMedium),
           );
         },
         onSelected: (suggestion) async {
@@ -109,16 +102,6 @@ class AppDropDownWidget extends StatelessWidget {
           textController.text = suggestion;
 
           focusNode?.unfocus();
-          // FocusScope.of(context).requestFocus(focusNode);
-
-          // controller.searchType.value = 'location';
-          // controller.setPlaceDetails(suggestion);
-          //
-          // controller.searchTextController.text = suggestion.placeName ?? '';
-          // log('TypeAhead controller: ${controller.searchTextController.text}');
-          //
-          // /// clear all filter
-          // controller.clearAllFilter();
         },
       );
     }else{
@@ -126,29 +109,25 @@ class AppDropDownWidget extends StatelessWidget {
         decoration: InputDecoration(
           labelText: '${labelText ?? 'Select'} ${isMandatory == false ? '' : '*'}',
           hintText: hintText,
-          hintStyle: Get.textTheme.bodyMedium!.copyWith(
-            color: AppColor.hintTextColor,
-            fontWeight: FontWeight.w200,
-            decoration: TextDecoration.none,
-          ),
+          hintStyle: TextStyleType.hintTextStyle,
           contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
           disabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColor.disabledBorder,
+              color: context.disabledColor,
               width: 2.w,
             ),
             borderRadius: BorderRadius.circular(8.0),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: borderColor ?? AppColor.textFieldBorderColor,
+              color: borderColor ?? context.colors.outline,
               width: 2.w,
             ),
             borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColor.primary,
+              color: context.colors.primary,
               width: 2.w,
             ),
             borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
@@ -159,14 +138,7 @@ class AppDropDownWidget extends StatelessWidget {
           fontWeight: FontWeight.w200,
           decoration: TextDecoration.none,
         ),
-        hint: Text(
-          hintText ?? 'Select an option',
-          style: Get.textTheme.bodyMedium!.copyWith(
-            color: AppColor.hintTextColor,
-            fontWeight: FontWeight.w200,
-            decoration: TextDecoration.none,
-          ),
-        ),
+        hint: AppText(text: hintText ?? 'Select an option', textStyle: TextStyleType.hintTextStyle,),
         items: itemsList?.map((item) {
           return DropdownMenuItem<String>(
             value: item,

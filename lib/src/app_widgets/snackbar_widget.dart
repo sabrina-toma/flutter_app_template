@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 
-import '../core/constants/app_color.dart';
 
 
 class AppSnacks {
@@ -24,12 +25,12 @@ class AppSnack {
 
   static void showError(String message) => Fluttertoast.showToast(
     msg: message,
-    backgroundColor: AppColor.errorSnackBarBackgroundColor,
+    backgroundColor: Get.context!.colors.errorContainer,
     toastLength: Toast.LENGTH_LONG,
   );
 
   static void showSuccess(String message) =>
-      Fluttertoast.showToast(msg: message, backgroundColor: AppColor.successSnackBarBackgroundColor);
+      Fluttertoast.showToast(msg: message, backgroundColor: Get.context!.successColor);
 
   static void showWarning(String message) => Fluttertoast.showToast(
     msg: message,

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../core/constants/app_color.dart';
-
 class AppButton extends StatelessWidget {
   const AppButton(
-      {Key? key,
+      {super.key,
         this.height,
         this.buttonColor,
         this.child,
@@ -19,8 +18,7 @@ class AppButton extends StatelessWidget {
         this.elevation,
         this.radius,
         this.disableColor,
-        this.margin})
-      : super(key: key);
+        this.margin});
 
   final Widget? child;
 
@@ -49,9 +47,9 @@ class AppButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.zero,
           disabledBackgroundColor: disableColor,
-          backgroundColor: solid ? buttonColor ?? AppColor.primary : Get.isDarkMode ? AppColor.appBackgroundColorDark : AppColor.appBackgroundColor,
-          foregroundColor: AppColor.transparent,
-          surfaceTintColor: AppColor.transparent,
+          backgroundColor: solid ? buttonColor ?? context.colors.primary : context.backgroundColor,
+          foregroundColor: context.transparent,
+          surfaceTintColor: context.transparent,
           elevation: elevation ?? 1,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radius ?? 8.r),
@@ -59,7 +57,7 @@ class AppButton extends StatelessWidget {
               color: !solid
                   ? borderColor != null
                   ? borderColor!
-                  : AppColor.border
+                  : context.colors.outline
                   : borderColor ?? Colors.transparent,
             ),
           ),

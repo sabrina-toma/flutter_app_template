@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../core/constants/app_color.dart';
 import '../../core/constants/app_size.dart';
 
 class SelectOptionButton extends StatelessWidget {
@@ -17,7 +16,7 @@ class SelectOptionButton extends StatelessWidget {
   final Color? unSelectedTextColor;
 
   const SelectOptionButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.isSelected,
     required this.onTap,
@@ -25,7 +24,7 @@ class SelectOptionButton extends StatelessWidget {
     this.unSelectedColor,
     this.selectedTextColor,
     this.unSelectedTextColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +35,7 @@ class SelectOptionButton extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
-          color: isSelected ? selectedColor ?? AppColor.white : unSelectedColor ?? Colors.transparent,
+          color: isSelected ? selectedColor ?? context.colors.primary : unSelectedColor,
         ),
         child: Text(
           text,
@@ -44,7 +43,7 @@ class SelectOptionButton extends StatelessWidget {
             textStyle: Get.textTheme.bodyMedium!.copyWith(
               overflow: TextOverflow.visible,
               fontWeight: FontWeight.w500,
-              color: isSelected ? selectedTextColor ?? AppColor.primary : unSelectedTextColor ?? AppColor.white,
+              color: isSelected ? selectedTextColor ?? context.colors.onPrimary : unSelectedTextColor ,
             ),
           ),
         ),

@@ -28,10 +28,4 @@ class ConfigService {
   String get encryptionKey => configurations?['encryptionKey'] as String? ?? '';
   String get dbName => configurations?['dbName'] as String? ?? '';
 
-  String get CLOUDINARY_API => configurations?['CLOUDINARY_API'] as String? ?? '';
-  String get CLOUDINARY_API_SECRET => configurations?['CLOUDINARY_API_SECRET'] as String? ?? '';
-  String get CLOUDINARY_API_KEY => configurations?['CLOUDINARY_API_KEY'] as String? ?? '';
-  String get CLOUDINARY_CLOUD_NAME => configurations?['CLOUDINARY_CLOUD_NAME'] as String? ?? '';
-  String get PUBLIC_CLOUDINARY_UPLOAD_PRESET => configurations?['PUBLIC_CLOUDINARY_UPLOAD_PRESET'] as String? ?? '';
-
 }

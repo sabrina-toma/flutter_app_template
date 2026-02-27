@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 
-import '../../core/constants/app_color.dart';
 import '../../core/constants/app_size.dart';
 
 class CustomSwitch extends StatelessWidget {
@@ -42,7 +42,7 @@ class CustomSwitch extends StatelessWidget {
           value: value,
           onChanged:(value) =>  onChanged(value),
           activeColor: activeColor ?? Colors.white,
-          activeTrackColor: activeTrackColor ?? AppColor.primary,
+          activeTrackColor: activeTrackColor ?? context.colors.primary,
           inactiveThumbColor: inactiveThumbColor ?? Colors.white,
           inactiveTrackColor: inactiveTrackColor ?? Colors.grey,
         ),
