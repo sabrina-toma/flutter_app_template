@@ -48,7 +48,7 @@ class MorePageController extends GetxController{
     packageInfo.value = info;
 
     log("Package Info: ${info.toString()}");
-    log("App version: ${packageInfo.value.version ?? "NULL"}");
+    log("App version: ${packageInfo.value.version}");
   }
 
   routeToNextPageView({required int groupIndex, required int itemIndex, required String routesPath}) {

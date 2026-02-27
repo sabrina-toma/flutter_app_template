@@ -2,11 +2,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../core/constants/app_color.dart';
 import '../core/constants/app_constrains.dart';
 import '../core/constants/app_size.dart';
 import '../core/utils/common_methods.dart';
@@ -48,13 +48,13 @@ showPhotoAddOptionModal({required String title, required Function(File imageFile
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(AppSize.mediumBorderRadius),
-                      color: AppColor.primaryLight2,
+                      color: context.colors.primaryContainer,
                     ),
                     padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 12.w),
                     child: Column(
                       children: [
-                        Icon(Icons.camera_alt_outlined, size: 30.r,),
-                        AppText(text: 'Take a Picture', textStyle:TextStyleType.bodyMedium,),
+                        Icon(Icons.camera_alt_outlined, size: 30.r, color: context.colors.onPrimaryContainer,),
+                        AppText(text: 'Take a Picture', textStyle:TextStyleType.bodyMedium, color: context.colors.onPrimaryContainer,),
                       ],
                     ),
                   ),
@@ -68,13 +68,13 @@ showPhotoAddOptionModal({required String title, required Function(File imageFile
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(AppSize.mediumBorderRadius),
-                      color: AppColor.primaryLight2,
+                      color: context.colors.primaryContainer,
                     ),
                     padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 12.w),
                     child: Column(
                       children: [
-                        Icon(Icons.image_outlined, size: 30.r,),
-                        AppText(text: 'Select From Gallery', textStyle:TextStyleType.bodyMedium,),
+                        Icon(Icons.image_outlined, size: 30.r,color: context.colors.onPrimaryContainer,),
+                        AppText(text: 'Select From Gallery', textStyle:TextStyleType.bodyMedium,color: context.colors.onPrimaryContainer,),
                       ],
                     ),
                   ),
@@ -123,7 +123,7 @@ showPicConfirmDialog({
               child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: AppColor.grey,
+                color: context.colors.outlineVariant,
               ),
               padding: EdgeInsets.all(10),
               child: Icon(Icons.edit, size: 20.r,),
@@ -143,7 +143,7 @@ showPicConfirmDialog({
               },
               solid: false,
               width: Get.width * 0.25,
-              borderColor: AppColor.redButtonColor,
+              borderColor: context.colors.error,
               child: AppText(text: 'Close', textStyle: TextStyleType.titleSmall),
             ),
 

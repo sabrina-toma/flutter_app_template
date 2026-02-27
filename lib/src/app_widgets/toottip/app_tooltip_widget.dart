@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:super_tooltip/super_tooltip.dart';
 
-import '../../core/constants/app_color.dart';
 import '../text/app_text_widgets.dart';
 
 class AppToolTipWidget extends StatelessWidget{
@@ -27,7 +27,7 @@ class AppToolTipWidget extends StatelessWidget{
         showBarrier: true,
         showCloseButton: true,
         controller: tollTipController,
-        backgroundColor: Get.isDarkMode ? AppColor.black : AppColor.white,
+        backgroundColor: context.colors.surfaceContainerHigh,
         content: AppText(text: toolTipText, textStyle: TextStyleType.bodyMedium, fontWeight: FontWeight.w400, overflow: TextOverflow.visible,),
         child: Icon(
           Icons.info_outline,
@@ -49,7 +49,6 @@ class AppToolTipWidget extends StatelessWidget{
 
       // Check available space above and below the widget
       final spaceBelow = screenHeight - offset.dy - box.size.height;
-      final spaceAbove = offset.dy;
 
       // Determine the direction based on available space
       direction = spaceBelow > 450.h ? TooltipDirection.down : TooltipDirection.up;

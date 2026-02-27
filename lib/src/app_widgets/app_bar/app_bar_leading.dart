@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:get/get.dart';
 
-import '../../core/constants/app_color.dart';
 
 class AppBarLeading extends StatelessWidget {
-  AppBarLeading({Key? key, required this.onTap, this.color}) : super(key: key);
+  const AppBarLeading({super.key, required this.onTap, this.color});
 
   final Function onTap;
-  Color? color;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class AppBarLeading extends StatelessWidget {
       },
       icon: Icon(
         GetPlatform.isAndroid ? Icons.arrow_back : Icons.arrow_back,
-        color: color ?? (Get.isDarkMode ? AppColor.white : AppColor.black),
+        color: color ?? context.textColor,
         size: 28,
       ),
     );

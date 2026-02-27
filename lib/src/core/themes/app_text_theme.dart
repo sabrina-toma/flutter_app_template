@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 TextTheme appTextTheme(ColorScheme colorScheme) => TextTheme(
   displayLarge: TextStyle(

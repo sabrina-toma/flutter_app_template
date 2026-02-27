@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_app_template/src/features/content_page/application/bindings/content_page_binding.dart';
 import 'package:flutter_app_template/src/features/home_page/presentation/pages/home_page_view.dart';
 import 'package:flutter_app_template/src/features/more_page/application/bindings/more_page_binding.dart';
@@ -7,7 +8,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
-import '../../../../core/constants/app_color.dart';
 import '../../../../core/constants/app_size.dart';
 import '../../../content_page/presentation/pages/content_page_view.dart';
 import '../../../home_page/application/bindings/home_page_binding.dart';
@@ -41,7 +41,7 @@ class MainNavigationController extends GetxController{
     PersistentBottomNavBarItem(
       icon: FaIcon(FontAwesomeIcons.house, size: 18.r), //Image.asset(AppImageAssets.homeIcon),
       title: "Home",
-      activeColorPrimary: AppColor.primary,
+      activeColorPrimary: Get.context!.colors.primary,
       inactiveColorPrimary: Colors.grey,
     ),
     PersistentBottomNavBarItem(
@@ -49,18 +49,18 @@ class MainNavigationController extends GetxController{
       iconSize: AppSize.navBarIconSize,
       title: "Content",
       opacity: 0.7,
-      activeColorPrimary: AppColor.primary,
+      activeColorPrimary: Get.context!.colors.primary,
       activeColorSecondary: navBarStyle == NavBarStyle.style7 ||
           navBarStyle == NavBarStyle.style10
           ? Colors.white
           : null,
-      inactiveColorPrimary: AppColor.grey,
+      inactiveColorPrimary: Get.context!.disabledColor,
       scrollController: scrollControllers.first,
     ),
     PersistentBottomNavBarItem(
       icon: FaIcon(FontAwesomeIcons.bars, size: 18.r),
       title: "More",
-      activeColorPrimary: AppColor.primary,
+      activeColorPrimary: Get.context!.colors.primary,
       inactiveColorPrimary: Colors.grey,
       activeColorSecondary: navBarStyle == NavBarStyle.style7 ||
           navBarStyle == NavBarStyle.style10

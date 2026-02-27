@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../core/assetes/image_assets_manager.dart';
 import '../../core/constants/app_size.dart';
@@ -86,7 +85,7 @@ class AppNetworkImage extends StatelessWidget {
               ),
               height: 40,
               width: 40,
-              child: Center(child: FaIcon(FontAwesomeIcons.edit, size: 25,)),
+              child: Center(child: FaIcon(Icons.edit, size: 25,)),
             ),
           ),
         ),

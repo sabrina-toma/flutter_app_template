@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:get/get.dart';
 
-import '../../core/constants/app_color.dart';
 import '../../core/constants/app_constrains.dart';
 import '../../core/constants/app_size.dart';
 import '../buttons/app_button.dart';
@@ -65,7 +65,7 @@ class ConfirmationDialog extends StatelessWidget {
                 if(onTapButton!= null ) onTapButton!(buttonData ?? '');
               },
               solid: true,
-              child: AppText(text: buttonText ?? 'Confirm', textStyle: TextStyleType.titleSmall, color: AppColor.white,),
+              child: AppText(text: buttonText ?? 'Confirm', textStyle: TextStyleType.titleSmall, color: context.colors.onPrimary,),
             ),
           ],
         )

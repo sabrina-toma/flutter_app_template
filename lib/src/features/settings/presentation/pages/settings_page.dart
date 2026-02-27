@@ -1,5 +1,6 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app_template/src/app_widgets/text/app_text_widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -27,8 +28,17 @@ class SettingsPage extends GetView<SettingsController> {
                 children: [
                   AppText(text: 'App Theme', textStyle: TextStyleType.titleMedium),
                   InkWell(
-                    onTap: (){
-                      showThemeOptionDialog();
+                    onTap: () async {
+                      String? selectedTheme = await showThemeOptionDialog();
+                      if (selectedTheme != null) {
+                        log('User selected: $selectedTheme');
+                        controller.changeTheTheme(selectedTheme == 'light' ? ThemeMode.light : ThemeMode.dark);
+                        if (selectedTheme == 'light') {
+                          Get.changeThemeMode(ThemeMode.light);
+                        } else {
+                          Get.changeThemeMode(ThemeMode.dark);
+                        }
+                      }
                     },
                     child: Row(
                       children: [

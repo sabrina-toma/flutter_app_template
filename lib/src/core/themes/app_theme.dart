@@ -1,6 +1,9 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'app_color_scheme.dart';
+import 'app_text_theme.dart';
 /// The [AppTheme] defines light and dark themes for the app.
 ///
 /// Theme setup for FlexColorScheme package v8.
@@ -19,7 +22,7 @@ abstract final class AppTheme {
   // The FlexColorScheme defined light mode ThemeData.
   static ThemeData light = FlexThemeData.light(
     // Using FlexColorScheme built-in FlexScheme enum based colors
-    scheme: FlexScheme.blumineBlue,
+    scheme: FlexScheme.aquaBlue,
     // Component theme configurations for light mode.
     subThemesData: const FlexSubThemesData(
       interactionEffects: true,
@@ -36,6 +39,7 @@ abstract final class AppTheme {
       searchViewRadius: 12.0,
       navigationRailUseIndicator: true,
     ),
+    textTheme: appTextTheme(lightColorScheme),
     // Direct ThemeData properties.
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
@@ -44,7 +48,7 @@ abstract final class AppTheme {
   // The FlexColorScheme defined dark mode ThemeData.
   static ThemeData dark = FlexThemeData.dark(
     // Using FlexColorScheme built-in FlexScheme enum based colors.
-    scheme: FlexScheme.blumineBlue,
+    scheme: FlexScheme.aquaBlue,
     // Component theme configurations for dark mode.
     subThemesData: const FlexSubThemesData(
       interactionEffects: true,
@@ -62,11 +66,14 @@ abstract final class AppTheme {
       searchViewRadius: 12.0,
       navigationRailUseIndicator: true,
     ),
+    textTheme: appTextTheme(darkColorScheme),
     // Direct ThemeData properties.
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
   );
 }
+
+
 
 
 

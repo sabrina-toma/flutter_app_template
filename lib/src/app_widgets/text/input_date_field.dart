@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_template/src/app_widgets/text/app_text_widgets.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../core/constants/app_color.dart';
 import '../../core/constants/app_size.dart';
 
 
@@ -75,7 +76,7 @@ class InputDateField extends StatelessWidget {
         minLines: minLines ?? 1,
         readOnly: readOnly ?? false,
         // textInputAction: textInputAction ?? TextInputAction.none,
-        cursorColor: cursorColor ?? (Get.isDarkMode ? AppColor.white : AppColor.black),
+        cursorColor: cursorColor ?? context.textColor,
         scrollPadding: EdgeInsets.all(scrollPadding ?? 0.0),
         cursorWidth: 1.0.w,
         inputFormatters: [
@@ -83,7 +84,7 @@ class InputDateField extends StatelessWidget {
         ],
         style: style ??
             Get.textTheme.bodyMedium!.copyWith(
-              color: (enabled ?? true) ? inputTextColor ?? ( Get.isDarkMode? AppColor.white : AppColor.black) : AppColor.grey,
+              color: (enabled ?? true) ? inputTextColor ?? context.textColor : context.disabledColor,
               fontWeight: FontWeight.w400,
               fontStyle: FontStyle.normal,
               decoration: TextDecoration.none,
@@ -102,16 +103,11 @@ class InputDateField extends StatelessWidget {
           labelText: labelText,
           labelStyle: labelStyle ??
               Get.textTheme.bodyMedium!.copyWith(
-                color: AppColor.grey2,
                 fontWeight: FontWeight.w400,
                 // fontStyle: FontStyle.italic,
                 decoration: TextDecoration.none,
               ),
-          hintStyle: hintStyle ?? Get.textTheme.bodyMedium!.copyWith(
-            color: AppColor.hintTextColor,
-            fontWeight: FontWeight.w200,
-            decoration: TextDecoration.none,
-          ),
+          hintStyle: hintStyle ?? TextStyleType.hintTextStyle,
           hintText: hintText,
           errorText: errorText,
           errorStyle: errorStyle,
@@ -122,7 +118,7 @@ class InputDateField extends StatelessWidget {
           // contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
           disabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColor.disabledBorder,
+              color: context.disabledColor,
               width: 1.5.w,
             ),
             borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
@@ -130,14 +126,14 @@ class InputDateField extends StatelessWidget {
 
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: borderColor ?? AppColor.textFieldBorderColor,
+              color: borderColor ?? context.colors.outline,
               width: 1.5.w,
             ),
             borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: focusedBorderColor ?? AppColor.primary,
+              color: focusedBorderColor ?? context.colors.primary,
               width: 2.w,
             ),
             borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),

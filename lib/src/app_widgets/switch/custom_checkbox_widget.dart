@@ -1,13 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 
-import '../../core/constants/app_color.dart';
 import '../../core/constants/app_size.dart';
 
 class CustomCheckBox extends StatelessWidget {
-  bool isChecked;
+  final bool isChecked;
   final Function(bool) onChanged;
-  CustomCheckBox({super.key, required this.isChecked, required this.onChanged});
+  const CustomCheckBox({super.key, required this.isChecked, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class CustomCheckBox extends StatelessWidget {
         // isChecked = value ?? false;
       },
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      activeColor: AppColor.primary,
+      activeColor: context.colors.primary,
     );
   }
 

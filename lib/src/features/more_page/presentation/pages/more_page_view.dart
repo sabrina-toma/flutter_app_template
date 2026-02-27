@@ -1,13 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app_template/src/app_widgets/text/app_text_widgets.dart';
 import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/constants/app_color.dart';
 import '../../../../core/constants/app_size.dart';
 import '../../application/controllers/more_page_controller.dart';
 
@@ -17,6 +15,7 @@ class MorePage extends GetView<MorePageController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      bottom: false,
       child: Scaffold(
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: AppSize.defaultSpace.w, vertical: AppSize.defaultSpace.h),
@@ -31,9 +30,8 @@ class MorePage extends GetView<MorePageController> {
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: AppSize.defaultSpace.w, vertical: AppSize.defaultSpace.h),
                       decoration: BoxDecoration(
-                        color: AppColor.white,
                         borderRadius: BorderRadius.circular(AppSize.mediumBorderRadius.r),
-                        border: Border.all(color: AppColor.grey.withOpacity(0.2), width: 0.5.w),
+                        border: Border.all(color: context.colors.outline, width: 0.5.w),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,13 +93,11 @@ class MorePage extends GetView<MorePageController> {
                                                   ? Container(
                                                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
                                                 decoration: BoxDecoration(
-                                                  color: context.colors.tertiaryContainer,
                                                   borderRadius: BorderRadius.circular(10.r),
                                                 ),
                                                 child: AppText(
                                                   text: item.span ?? '',
                                                   textStyle: TextStyleType.labelMedium,
-                                                  color: context.colors.onTertiaryContainer,
                                                 ),
                                               )
                                                   : const SizedBox.shrink(),
@@ -124,7 +120,7 @@ class MorePage extends GetView<MorePageController> {
                                       : Container(
                                     height: 0.2.h,
                                     width: double.infinity,
-                                    color: AppColor.grey.withOpacity(0.5),
+                                    color: context.colors.outline,
                                     margin: EdgeInsets.symmetric(vertical: 10.h),
                                   ),
                                 ],
@@ -135,17 +131,16 @@ class MorePage extends GetView<MorePageController> {
                       ),
                     ),
 
-                    /// Group divider
+                    /// Group divider & app version
                     controller.profileMenuList.length - 1 == index
                         ? Container(
                       width: double.infinity,
-                      alignment: Alignment.center,
+                      alignment: Alignment.bottomCenter,
                       margin: EdgeInsets.only(top: AppSize.spaceBtwItem),
                       padding: EdgeInsets.symmetric(horizontal: AppSize.defaultSpace.w, vertical: AppSize.defaultSpace.h),
                       decoration: BoxDecoration(
-                        color: AppColor.white,
                         borderRadius: BorderRadius.circular(AppSize.mediumBorderRadius.r),
-                        border: Border.all(color: AppColor.grey.withOpacity(0.2), width: 0.5.w),
+                        border: Border.all(color: context.colors.outline, width: 0.5.w),
                       ),
                       child: Column(
                         children: [
@@ -156,12 +151,6 @@ class MorePage extends GetView<MorePageController> {
                       ),
                     )
                         : SizedBox(height: 10.h),
-                    // Container(
-                    //         height: 1.h,
-                    //         width: double.infinity,
-                    //         color: ColorManager.grey,
-                    //         margin: EdgeInsets.symmetric(vertical: 24.h),
-                    //       ),
                   ],
                 );
               },

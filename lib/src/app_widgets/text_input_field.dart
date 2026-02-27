@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_template/src/app_widgets/text/app_text_widgets.dart';
+import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../core/constants/app_color.dart';
 import '../core/constants/app_size.dart';
 
 class InputTextForm extends StatelessWidget {
@@ -70,12 +71,12 @@ class InputTextForm extends StatelessWidget {
         minLines: minLines ?? 1,
         readOnly: readOnly ?? false,
         // textInputAction: textInputAction ?? TextInputAction.none,
-        cursorColor: cursorColor ?? AppColor.black,
+        cursorColor: cursorColor ?? context.textColor,
         scrollPadding: EdgeInsets.all(scrollPadding ?? 0.0),
         cursorWidth: 1.0.w,
         style: style ??
             Get.textTheme.labelMedium!.copyWith(
-              color: (enabled ?? true) ? inputTextColor ?? AppColor.black : AppColor.grey,
+              color: (enabled ?? true) ? inputTextColor ?? context.textColor : context.disabledColor,
               fontWeight: FontWeight.w300,
               fontStyle: FontStyle.normal,
               decoration: TextDecoration.none,
@@ -93,16 +94,11 @@ class InputTextForm extends StatelessWidget {
           labelText: labelText,
           labelStyle: labelStyle ??
               Get.textTheme.labelMedium!.copyWith(
-                color: AppColor.grey,
                 fontWeight: FontWeight.w300,
                 // fontStyle: FontStyle.italic,
                 decoration: TextDecoration.none,
               ),
-          hintStyle: hintStyle ?? Get.textTheme.labelMedium!.copyWith(
-            color: AppColor.hintTextColor,
-            fontWeight: FontWeight.w200,
-            decoration: TextDecoration.none,
-          ),
+          hintStyle: hintStyle ?? TextStyleType.hintTextStyle,
           hintText: hintText,
           errorText: errorText,
           errorStyle: errorStyle,
@@ -112,14 +108,14 @@ class InputTextForm extends StatelessWidget {
           // contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: borderColor ?? AppColor.grey,
+              color: borderColor ?? context.colors.outline,
               width: 0.5.w,
             ),
             borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: borderColor ?? AppColor.primary,
+              color: borderColor ?? context.colors.primary,
               width: 0.5.w,
             ),
             borderRadius: BorderRadius.circular(AppSize.smallBorderRadius),

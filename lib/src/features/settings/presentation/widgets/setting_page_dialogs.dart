@@ -5,8 +5,8 @@ import 'package:flutter_app_template/src/core/constants/app_constrains.dart';
 import 'package:flutter_app_template/src/core/themes/theme_extension.dart';
 import 'package:get/get.dart';
 
- showThemeOptionDialog(){
-  showDialog(
+Future<String?> showThemeOptionDialog() async {
+  return await showDialog<String>(
     context: Get.context!,
     builder: (context) => AlertDialog(
       title: AppText(text: 'Select Theme', textStyle: TextStyleType.titleMedium,),
@@ -15,14 +15,14 @@ import 'package:get/get.dart';
         children: [
           AppButton(
             onTap: (){
-              Get.back();
+              Get.back(result: 'light');
             },
             child: AppText(text: 'Light', textStyle: TextStyleType.bodyMedium, color: context.buttonTextColor,),
           ),
           AppConstrains.spaceBetweenItems,
           AppButton(
             onTap: (){
-              Get.back();
+              Get.back(result: 'dark');
               },
             child: AppText(text: 'Dark', textStyle: TextStyleType.bodyMedium, color: context.buttonTextColor,),
           ),

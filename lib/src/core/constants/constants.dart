@@ -15,11 +15,4 @@ class Constants{
 
   static String encryptionKey = ConfigService.instance.encryptionKey;
 
-  /// Cloudinary
-  static String CLOUDINARY_API = ConfigService.instance.CLOUDINARY_API;
-  static String CLOUDINARY_API_SECRET = ConfigService.instance.CLOUDINARY_API_SECRET;
-  static String CLOUDINARY_API_KEY = ConfigService.instance.CLOUDINARY_API_KEY;
-  static String CLOUDINARY_CLOUD_NAME = ConfigService.instance.CLOUDINARY_CLOUD_NAME;
-  static String PUBLIC_CLOUDINARY_UPLOAD_PRESET = ConfigService.instance.PUBLIC_CLOUDINARY_UPLOAD_PRESET;
-
 }
